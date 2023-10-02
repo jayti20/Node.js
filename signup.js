@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 app.get("/thankyou", (req, res) => {
   console.log("get request", req.query);
   res.render("thankyou", {
+    name: req.query.name,
     email: req.query.email,
     password: req.query.password,
   });
@@ -22,6 +23,7 @@ app.get("/thankyou", (req, res) => {
 app.post("/thankyou", (req, res) => {
   console.log("post request", req.body);
   res.render("thankyou", {
+    name: req.body.name,
     email: req.body.email,
     password: req.body.password,
   });
