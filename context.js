@@ -7,6 +7,7 @@ const handlebars = require("express-handlebars").create({
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
 
+app.use(express.static(__dirname + "/public"));
 app.get("/", (req, res) => {
   res.render("block", {
     students: [

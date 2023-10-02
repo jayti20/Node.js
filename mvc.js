@@ -5,6 +5,7 @@ const handlebars = require("express-handlebars").create({
 });
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
+app.use(express.static(__dirname + "/public"));
 const userlist = [
   { id: 1, username: "Samuel" },
   { id: 2, username: "Clark" },

@@ -3,7 +3,7 @@
 {{#each students}}
 <li>
 Hi, my name is {{this.name.[0]}} {{this.name.[1]}} an my roll number is {{this.rollNo}}. My {{this.familyInfo.[0].relation}}'s name is {{this.familyInfo.[0].name}} and he is an {{this.familyInfo.[0].occupation}}. I currently reside at {{this.address.home}} , {{this.address.state}} , {{this.address.country}} , {{this.address.pincode}}. 
-The fees for my current school is ${{../fees}}.
+The fees for my current school is ${{../this.fees}}.
 </li>
 {{/each}}
 </ol>
