@@ -5,22 +5,22 @@ const handlebars = require("express-handlebars").create({
   defaultLayout: "main",
 });
 app.use(bodyparser.urlencoded({ extended: false }));
+app.use(express.static(__dirname + "/public"));
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
-let savedData = "";
 app.get("/", (req, res) => {
   console.log(req.query);
-  res.render("form", { savedData });
+  res.render("form");
 });
-// app.get("/thankyou", (req, res) => {
-//   console.log(req.query);
-//   res.render("thankyou", {
-//     email: req.query.email,
-//     password: req.query.password,
-//   });
-// });
+app.get("/thankyou", (req, res) => {
+  console.log("get request", req.query);
+  res.render("thankyou", {
+    email: req.query.email,
+    password: req.query.password,
+  });
+});
 app.post("/thankyou", (req, res) => {
-  console.log(req.body);
+  console.log("post request", req.body);
   res.render("thankyou", {
     email: req.body.email,
     password: req.body.password,
