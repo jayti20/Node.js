@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="/formstyle.css">
+  <script>
+  document.addEventListener("DOMContentLoaded",()=>{
+  if(document.getElementById("message"))
+  {
+  setTimeout(()=>{
+  document.getElementById("message").style.display="none"
+  },2000)
+  }
+  })
+  </script>
 </head>
 <body>
 <header>

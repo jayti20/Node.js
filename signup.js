@@ -4,7 +4,7 @@ const bodyparser = require("body-parser");
 const handlebars = require("express-handlebars").create({
   defaultLayout: "main",
 });
-app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
@@ -18,6 +18,7 @@ app.get("/thankyou", (req, res) => {
     name: req.query.name,
     email: req.query.email,
     password: req.query.password,
+    showMessage: true,
   });
 });
 app.post("/thankyou", (req, res) => {
@@ -26,6 +27,7 @@ app.post("/thankyou", (req, res) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
+    showMessage: true,
   });
 });
 app.listen(8000);
